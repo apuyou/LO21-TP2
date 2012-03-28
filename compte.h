@@ -15,14 +15,15 @@ namespace BANQUE {
     {
     private:
         static int prochainNumero;
-        TypeCompte* typeCompte;
-        Client* proprietaire;
         int numero; /*!< Numero du compte */
         double solde; /*!< Solde disponible */
         double interetsCumules; /*!< Intérêts cumulés depuis la création du compte */
+        TypeCompte* typeCompte;
         Historique* historique;
     public:
-        Compte(TypeCompte* type=NULL, Client* propro=NULL, double sol=0);
+        Compte(TypeCompte* type, Client* propro, double sol=0);
+        int getNumero() const {return numero;}
+        TypeCompte* getTypeCompte() const {return typeCompte;}
         bool Deposer(double montant);
         bool Retirer(double montant);
         bool TransfererVers(double montant, Compte* destination);

@@ -22,10 +22,10 @@ namespace BANQUE {
     private:
         TypeOperation type;
         double somme;
-        //Compte *compteDestination;
+        Compte* compteDestination;
         Date *date;
     public:
-        Operation();
+        Operation(TypeOperation t= Depot, double som = 0, Compte* dest=0, Date* d = 0);
         void Afficher();
     };
 }

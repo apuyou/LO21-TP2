@@ -13,7 +13,7 @@ namespace BANQUE {
         double tauxRemuneration;
     public:
         TypeCompte(string intituleCompte, double plafondMinimum, double plafondMaximum, double tauxRemunerationCompte);
-        string getIntitule(){return intitule;}
+        string getIntitule() const {return intitule;}
     };
 
 }

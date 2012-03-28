@@ -19,9 +19,9 @@ namespace BANQUE {
         Client **clients;  /*!< Clients de la banque */
         Compte **comptes;  /*!< Comptes de la banque */
         TypeCompte **types;  /*!< Types de compte commercialisés */
-        int NB_MAX_CLIENTS;  /*!< Nombre maximum de clients que l'on peut créer */
+        const int NB_MAX_CLIENTS;  /*!< Nombre maximum de clients que l'on peut créer */
         int nbClients;  /*!< Nombre de clients exisants*/
-        int NB_MAX_COMPTES;  /*!< Nombre maximum de comptes que l'on peut créer */
+        const int NB_MAX_COMPTES;  /*!< Nombre maximum de comptes que l'on peut créer */
         int nbComptes;  /*!< Nombre de comptes dans la banque*/
         int NB_MAX_TYPECOMPTES;  /*!< Nombre maximum de types de comptes */
         int nbTypeComptes;  /*!< Nombre de types de comptes */
@@ -46,8 +46,7 @@ namespace BANQUE {
         /*!
          * \brief Créé un nouveau type de compte
          *
-         * Créé un nouveau type de compte et l'ajoute aux types de comptes
-         * disponibles dans cette banque.
+         * Créé un nouveau type de compte disponible dans cette banque.
          * \param type Nom du type de compte
          * \param minimum Somme minimum à placer sur le compte
          * \param maximum Somme maximum que l'on peut placer sur le compte
@@ -56,33 +55,9 @@ namespace BANQUE {
          */
         TypeCompte* CreerUnTypeDeCompte(string type, double minimum, double maximum, double remuneration);
 
-        /*!
-         * \brief Ajouter un nouveau client
-         *
-         * Ajoute un nouveau client dans le système de la banque
-         * \param prenom Prénom du client
-         * \param nom Nom du client
-         * \param jourNaissance Jour de naissance du client
-         * \param moisNaissance Mois de naissance du client
-         * \param anneeNaissance Année de naissance du client
-         * \return Nouveau client
-         */
-        Client* AjouterUnClient(string prenom, string nom, int jourNaissance, int moisNaissance, int anneeNaissance);
-
-        /*!
-         * \brief Ajouter un compte
-         *
-         * Ajoute un compte du type donné à un client nommé
-         * \param typeCompte Type du compte tel qu'ajouté avec CreerUnTypeDeCompte
-         * \param prenomClient Prénom du client auquel ajouter le compte
-         * \param nomClient Nom du client auquel ajouter le compte
-         * \param soldeInitial Solde initial du compte que l'on créé
-         * \return Le compte qui vient d'être créé, NULL sinon
-         */
-        Compte* CreerUnCompte(string typeCompte, string prenomClient, string nomClient, double soldeInitial);
-
-
-        Compte* GetCompte(string typeCompte, string prenomClient, string nomClient);
+        Client AjouterUnClient(string prenom, string nom, int jourNaissance, int moisNaissance, int anneeNaissance);
+        Compte CreerUnCompte(string typeCompte, string prenomClient, string nomClient, double soldeInitial);
+        Compte GetCompte(string typeCompte, string prenomClient, string nomClient);
 
     };
 }

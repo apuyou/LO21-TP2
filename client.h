@@ -12,14 +12,11 @@ namespace BANQUE {
     class Client
     {
     public:
-        Client(string nomClient, string prenomClient, Date* dateNaissanceClient);
-        string getNom(){return nom;}
-        string getPrenom(){return prenom;}
-        Date* getDateNaissance(){return dateNaissance;}
+        Client();
     private:
         string nom; /*!< Nom du client */
         string prenom; /*!< Prénom du client */
-        Date* dateNaissance; /*!< Date de naissance du client */
+        Date dateNaissance; /*!< Date de naissance du client */
     };
 }
 

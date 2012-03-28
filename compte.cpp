@@ -5,7 +5,7 @@ namespace BANQUE {
     int Compte::prochainNumero = 0;
 
     Compte::Compte(TypeCompte* type, Client* propro, double sol)
-        :typeCompte(type), proprietaire(propro), numero(prochainNumero++), solde(sol), interetsCumules(0)
+        :TypeCompte(type), proprietaire(propro), numero(prochainNumero++), solde(sol), interetsCumules(0)
     {historique = new Historique();
     }
 
@@ -33,12 +33,12 @@ namespace BANQUE {
     {
         Date* date = new Date();
         date->setDateAujourdhui();
-        Operation* operation = new Operation(Transfert, montant, this, date);
+        Operation* operation = new Operation(Transfert, montant, destination, date);
         historique->AjouterOperation(operation);
         solde -= montant;
 
         //Reception du transfert de la part du compte destination
-        Operation* operation2 = new Operation(ReceptionTransfert, montant, destination, date);
+        Operation* operation2 = new Operation(ReceptionTransfert, montant, this, date);
         destination->historique->AjouterOperation(operation2);
         destination->solde += montant;
         return true;
